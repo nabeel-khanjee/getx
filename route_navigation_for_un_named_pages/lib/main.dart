@@ -24,7 +24,20 @@ class MyApp extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
-                  Get.to(Home());
+                  Get.to(
+                    Home(),
+                    fullscreenDialog: true,
+                    transition: Transition.zoom,
+                    duration: Duration(milliseconds: 3000),
+                    curve: Curves.bounceInOut,
+                  );
+                  // go to home but no option to return to the previous screen
+                  // Get.off(Home());
+                  // go to home screen and cancle all prevoius screens/ routes
+                  // Get.offAll(Home());
+                  // go to home screen with some data 
+                  Get.to(Home(),arguments: "Data form main");
+
                 },
                 child: Text("Go To Home"),
               ),
